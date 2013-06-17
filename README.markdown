@@ -744,6 +744,19 @@ like: 0, f, n, false, no to 'false'.
 
 - *Type*: rvalue
 
+str2hash
+--------
+This function converts a string to a hash. The string must be a
+valid JSON parsable string.
+
+Examples:
+
+    str2hash('{"name":{"key":"value"}}')
+
+Would return: {"name"=>{"key"=>"value"}}
+
+- *Type*: rvalue
+
 str2saltedsha512
 ----------------
 This converts a string to a salted-SHA512 password hash (which is used for
