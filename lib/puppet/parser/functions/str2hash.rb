@@ -7,7 +7,6 @@ module Puppet::Parser::Functions
   
   EOS
   ) do |arguments|
-    require 'json'
 
     raise(Puppet::ParseError, "str2hash(): Wrong number of arguments " + 
       "passed (#{arguments.size} but we require 1)") if arguments.size != 1
@@ -20,7 +19,7 @@ module Puppet::Parser::Functions
     end
 
     begin
-      hash = JSON.parse(string)
+      hash = PSON.parse(string)
     rescue Exception => ex
       raise(Puppet::ParseError, "str2hash(): Unable to parse argument: #{ex.message}")
     end
